@@ -6,6 +6,12 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('submit');
+  this.route('admin', function() {
+    this.route(':post_id', function() {
+      this.route('edit');
+    });
+  });
 });
 
 export default Router;
