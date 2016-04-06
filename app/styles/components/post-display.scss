@@ -1,0 +1,38 @@
+.post-display {
+	.media-body {
+		padding-top: 5px;
+		@media screen and (max-width: 513px) {
+			padding-top: 2px; 
+		}
+		h3, p {
+			margin: 0;
+		}
+		h3 {
+			font-size: 1.4rem;
+		}
+	}
+	@media screen and (max-width: 730px) {
+	  	.media-figure {
+	  		width: 120px;
+	  		height: 80px;
+	  	}
+	  	.media-body {
+			h3 {
+	  			font-size: 1.1rem;
+	  		}
+	  		p {
+	  			font-size: 0.9rem;
+	  		}
+		}
+	}
+	@media screen and (max-width: 513px) {
+	  	.media-body {
+			h3 {
+	  			font-size: 1rem;
+	  		}
+	  		p {
+	  			font-size: 0.9rem;
+	  		}
+		}
+	}
+}

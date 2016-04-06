@@ -1,0 +1,14 @@
+.navbar {
+	width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+}
+.navbar > div {
+	display: inline-flex;
+}
+.navbar > div > div:not(:last-child) {
+    margin-right: 17px;
+}
+.navbar .logo {
+	text-transform: none;
+}

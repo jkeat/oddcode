@@ -1,0 +1,35 @@
+<form class="post-form" role="form" {{action 'formSubmitted' post on="submit"}}>
+	<label for="URL">URL*</label>
+	{{input type="text" name="URL" value=post.URL placeholder="http://www.example.directory" maxlength="50" required="true"}}
+
+	<label for="title">Title*</label>
+	{{input type="text" name="title" value=post.title placeholder="Click bait" required="true"}}
+
+	<label for="description">Description*</label>
+	{{input type="text" name="description" value=post.description placeholder="A short sentence" maxlength="60" required="true"}}
+
+	<label>Other relevant links</label>
+	<div class="link-form">
+		<table>
+			<tr>
+				<th>Link URL</th>
+				<th>Link text</th>
+			</tr>
+		{{#each post.links as |link|}}
+			<tr>
+				<td>{{input type="text" value=link.URL placeholder="Link URL" keyUp=(action 'updateLinkTriggered') }}</td>
+				<td>{{input type="text" value=link.title placeholder="e.x. blog post" keyUp=(action 'updateLinkTriggered') maxlength="20"}}</td>
+				{{#if post.onlyOneLink}}
+					
+				{{else}} {{#if (eq link post.links.lastObject)}}
+
+				{{else}}
+					<td><a href="" {{action "deleteLinkTriggered" link}}>Delete</a></td>
+				{{/if}}{{/if}}
+			</tr>
+		{{/each}}
+		</table>
+	</div>
+
+	<input type="submit" value="Submit">
+</form>

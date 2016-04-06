@@ -1,0 +1,17 @@
+.guidelines {
+	margin: 10px auto 0;
+	max-width: 450px;
+	line-height: 1.3em;
+	font-size: 0.7rem;
+}
+.guidelines ul {
+	margin-top: 0;
+	padding-left: 13px;
+}
+.guidelines .grd-row > div:first-child {
+	margin-right: 8px;
+}
+.guidelines ul.scroll-box {
+	height: 50px;
+	overflow-y: scroll;
+}

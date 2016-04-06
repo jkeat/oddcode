@@ -1,0 +1,18 @@
+<div class="post-display">	
+	<div class="media">
+		<div class="media-figure">
+			<img src="https://placeholdit.imgix.net/~text?txtsize=26&txt=&w=150&h=100" async="false">
+		</div>
+		<div class="media-body">
+			<h3><a href="{{post.URL}}">{{post.title}}</a></h3>
+			<p>{{post.description}}</p>
+			<p>
+				<span>{{relative-date post.createdOn}}</span>
+				{{#each post.links as |link|}}
+					|
+					<a href="{{link.URL}}">{{link.title}}</a>
+				{{/each}}	
+			</p>
+		</div>
+	</div>
+</div>

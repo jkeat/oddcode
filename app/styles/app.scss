@@ -1,0 +1,10 @@
+@import 'general';
+@import 'partials/navbar';
+@import 'partials/guidelines';
+@import 'components/post-display';
+@import 'components/post-form';
+
+
+.post-list .post-display {
+	margin-bottom: 40px;
+}
