@@ -1,38 +1,68 @@
 .post-display {
-	.media-body {
-		padding-top: 5px;
-		@media screen and (max-width: 513px) {
-			padding-top: 2px; 
+	.media {
+		align-items: center;
+		overflow-x: scroll;
+		overflow-y: hidden;
+
+		.media-body {
+			white-space: nowrap;
+
+			h3, p {
+				margin: 0;
+			}
+			.header {
+				font-size: 1.1rem;
+				line-height: 1.7rem;
+			}
+			.description {
+				font-size: 0.8rem;
+				line-height: 1.1rem;
+			}
+			.footer {
+				font-size: 0.7rem;
+				color: $grey;
+				line-height: 1.4rem;
+			}
 		}
-		h3, p {
-			margin: 0;
+
+		.media-figure {
+			min-width: 90px;
+			max-width: 90px;
+			height: 60px;
 		}
-		h3 {
-			font-size: 1.4rem;
+		@media screen and (min-width: 512px) {
+			.media-body {
+				.description {
+					font-size: 0.9rem;
+				}
+			}
+
+		  	.media-figure {
+		  		min-width: 120px;
+		  		max-width: 120px;
+		  		height: 80px;
+		  	}
 		}
-	}
-	@media screen and (max-width: 730px) {
-	  	.media-figure {
-	  		width: 120px;
-	  		height: 80px;
-	  	}
-	  	.media-body {
-			h3 {
-	  			font-size: 1.1rem;
-	  		}
-	  		p {
-	  			font-size: 0.9rem;
-	  		}
-		}
-	}
-	@media screen and (max-width: 513px) {
-	  	.media-body {
-			h3 {
-	  			font-size: 1rem;
-	  		}
-	  		p {
-	  			font-size: 0.9rem;
-	  		}
+		@media screen and (min-width: 768px) {
+			.media-body {
+				.header {
+					font-size: 1.4rem;
+					line-height: 2.1rem;
+				}
+				.description {
+					font-size: 1rem;
+					line-height: 1.3rem;
+				}
+				.footer {
+					line-height: 2rem;
+				}
+			}
+
+		  	.media-figure {
+		  		min-width: 150px;
+		  		max-width: 150px;
+		  		height: 100px;
+		  	}
 		}
 	}
 }

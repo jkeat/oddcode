@@ -1,12 +1,12 @@
 <form class="post-form" role="form" {{action 'formSubmitted' post on="submit"}}>
 	<label for="URL">URL*</label>
-	{{input type="text" name="URL" value=post.URL placeholder="http://www.example.directory" maxlength="50" required="true"}}
+	{{input type="url" name="URL" value=post.URL placeholder="http://www.example.directory" maxlength="1000" required="true"}}
 
 	<label for="title">Title*</label>
 	{{input type="text" name="title" value=post.title placeholder="Click bait" required="true"}}
 
 	<label for="description">Description*</label>
-	{{input type="text" name="description" value=post.description placeholder="A short sentence" maxlength="60" required="true"}}
+	{{input type="text" name="description" value=post.description placeholder="A short sentence" maxlength="1000" required="true"}}
 
 	<label>Other relevant links</label>
 	<div class="link-form">

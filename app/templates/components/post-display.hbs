@@ -4,9 +4,10 @@
 			<img src="https://placeholdit.imgix.net/~text?txtsize=26&txt=&w=150&h=100" async="false">
 		</div>
 		<div class="media-body">
-			<h3><a href="{{post.URL}}">{{post.title}}</a></h3>
-			<p>{{post.description}}</p>
-			<p>
+			<h3 class="header"><a href="{{post.URL}}">{{post.title}}</a></h3>
+			<p class="description">{{post.description}}</p>
+			<p class="footer">
+				<span>{{#link-to 'admin.edit' post}}edit{{/link-to}} | </span>
 				<span>{{relative-date post.createdOn}}</span>
 				{{#each post.links as |link|}}
 					|
