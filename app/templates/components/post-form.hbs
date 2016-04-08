@@ -19,13 +19,9 @@
 			<tr>
 				<td>{{input type="url" value=link.URL placeholder="Link URL" keyUp=(action 'updateLinkTriggered') }}</td>
 				<td>{{input type="text" value=link.title placeholder="e.x. blog post" keyUp=(action 'updateLinkTriggered') maxlength="20"}}</td>
-				{{#if item.onlyOneLink}}
-					
-				{{else}} {{#if (eq link item.links.lastObject)}}
-
-				{{else}}
+				{{#unless (eq link item.links.lastObject)}}
 					<td><a href="" {{action "deleteLinkTriggered" link}}>Delete</a></td>
-				{{/if}}{{/if}}
+				{{/unless}}
 			</tr>
 		{{/each}}
 		</table>

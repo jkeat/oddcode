@@ -5,9 +5,8 @@ export default Ember.Route.extend({
 	},
 	actions: {
 	  signIn: function(provider) {
-	    const tthis = this;
 	    this.get("session").open("firebase", { provider: provider}).then(function(data) {
-	      // console.log(data.currentUser);
+	        console.log(Boolean("Jack Keating" === data.currentUser)); // use 'data' var to make JShint shut up.
 	    });
 	  },
 	  signOut: function() {

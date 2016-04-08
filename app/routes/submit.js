@@ -1,40 +1,22 @@
 import Ember from 'ember';
+import SubmissionRouteAndPostRouteOverlap from 'oddcode/mixins/submission-route-and-post-route-overlap';
 
-export default Ember.Route.extend({
-	model(params) {
+export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
+	model() {
 		return this.store.createRecord('post');
-	},
-	afterModel(post, transition) {
-		transition.send('newLink', post);
 	},
 
 	actions: {
-
-	  savePost(newPost) {
-	  	this._destroyEmptyLinks(newPost).then(Ember.RSVP.all(newPost.get('links').invoke('save')).then(() => {
-	  		newPost.save().then(() => this.transitionTo('index'));
-	  	}));
-	  },
-
-	  newLink(post) {
-	  	const newLink = this.store.createRecord('link');
-	  	post.get('links').pushObject(newLink);
+	  transitionAfterSave() {
+	  	this.transitionTo('index');
 	  },
 
 	  willTransition() {
-	    let model = this.controller.get('model');
-	    if (model.get('isNew')) {
-	      model.get('links').invoke('destroyRecord');
-	      model.destroyRecord();
+	    let submission = this.controller.get('model');
+	    if (submission.get('isNew')) {
+	      submission.get('links').invoke('destroyRecord');
+	      submission.destroyRecord();
 	    }
 	  }
-	},
-
-	_destroyEmptyLinks(post) {
-		let promises = [];
-		post.get('links').forEach((link) => {
-			if (link.get('isEmpty')) { promises.push(link.destroyRecord()); }
-		});
-		return Ember.RSVP.all(Ember.$.makeArray(promises));
 	}
 });
