@@ -1,3 +1,5 @@
-<h4 class="txt--center">YOU'RE EDITING A POST</h4>
+<marquee behavior="alternate">
+	<h4 class="my1">YOU'RE EDITING A POST</h4>
+</marquee>
 
-{{post-form post=model submitPost='savePost' linkSave='saveLink' linkDelete='deleteLink' newLink='newLink'}}
+{{post-form session=session post=model submitPost='savePost' linkSave='saveLink' linkDelete='deleteLink' newLink='newLink'}}

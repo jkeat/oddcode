@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	model() {
-		return this.store.query('post', { orderBy: 'approved', equalTo: 1 } );
+		return this.store.query('post', {
+			orderBy: 'approved', 
+			equalTo: true
+		});
 	}
 });

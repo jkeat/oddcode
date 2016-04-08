@@ -1,11 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	model() {
-		let firstLink = this.store.createRecord('link');
-		let post = this.store.createRecord('post');
-		post.get('links').pushObject(firstLink);
-		return post;
+	model(params) {
+		return this.store.createRecord('post');
+	},
+	afterModel(post, transition) {
+		transition.send('newLink', post);
 	},
 
 	actions: {
@@ -23,7 +23,6 @@ export default Ember.Route.extend({
 
 	  willTransition() {
 	    let model = this.controller.get('model');
-
 	    if (model.get('isNew')) {
 	      model.get('links').invoke('destroyRecord');
 	      model.destroyRecord();

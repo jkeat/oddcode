@@ -1,5 +1,7 @@
-<h4 class="txt--center">YOU'RE SUBMITTING A NEW PROJECT</h4>
+<marquee behavior="alternate">
+	<h4 class="my1">YOU'RE SUBMITTING A NEW PROJECT</h4>
+</marquee>
 
 {{partial 'guidelines'}}
 
-{{post-form post=model submitPost='savePost' linkSave='saveLink' linkDelete='deleteLink' newLink='newLink'}}
+{{post-form post=model submitPost='savePost' linkSave='saveLink' linkDelete='deleteLink' newLink='newLink' session=session}}

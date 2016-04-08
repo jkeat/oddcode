@@ -2,11 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 	model(params) {
-		return this.store.findRecord('post', params.post_id).then((post) => {
-			let newLink = this.store.createRecord('link');
-			post.get('links').pushObject(newLink);
-			return post;
-		});
+		return this.store.findRecord('post', params.post_id);
+	},
+	afterModel(post, transition) {
+		transition.send('newLink', post);
 	},
 
 	actions: {

@@ -17,7 +17,7 @@
 			</tr>
 		{{#each post.links as |link|}}
 			<tr>
-				<td>{{input type="text" value=link.URL placeholder="Link URL" keyUp=(action 'updateLinkTriggered') }}</td>
+				<td>{{input type="url" value=link.URL placeholder="Link URL" keyUp=(action 'updateLinkTriggered') }}</td>
 				<td>{{input type="text" value=link.title placeholder="e.x. blog post" keyUp=(action 'updateLinkTriggered') maxlength="20"}}</td>
 				{{#if post.onlyOneLink}}
 					
@@ -31,5 +31,14 @@
 		</table>
 	</div>
 
+	{{#if session.isAuthenticated}}
+		<label for="approved">Approved</label>
+		{{input type="checkbox" checked=post.approved}}
+	{{/if}}
+
 	<input type="submit" value="Submit">
+
+	{{#unless session.isAuthenticated}}
+		<div class="txt--center small muted">first we'll review it semi-ASAP</div>
+	{{/unless}}
 </form>
