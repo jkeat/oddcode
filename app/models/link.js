@@ -4,8 +4,7 @@ import Ember from 'ember';
 export default DS.Model.extend({
   URL: DS.attr('string'),
   title: DS.attr('string'),
-  post: DS.belongsTo('post'),
 
-  isFilled: Ember.computed.or('URL', 'title'),
-  isEmpty: Ember.computed.not('isFilled')
+  bothFilled: Ember.computed.and('URL', 'title'),
+  eitherIsEmpty: Ember.computed.not('bothFilled')
 });

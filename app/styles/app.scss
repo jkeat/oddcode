@@ -3,9 +3,22 @@
 @import 'partials/navbar';
 @import 'partials/guidelines';
 @import 'components/post-display';
-@import 'components/post-form';
+@import 'components/submission-display';
 
 
 .post-list .post-display {
 	margin-bottom: 40px;
+}
+
+/* Norm Form */
+.norm-form {
+	margin-bottom: 40px;
+}
+.norm-form table {
+	width: 100%;
+}
+.norm-form table th {
+	font-variant: normal;
+	font-weight: normal;
+	font-size: 0.7rem;
 }

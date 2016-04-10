@@ -1,0 +1,13 @@
+<div class="submission-display">	
+	<h3 class="header"><a href="{{submission.URL}}">{{submission.title}}</a></h3>
+	<p class="description">{{submission.description}}</p>
+	<p class="footer">
+		<span>{{#link-to 'admin.submissions.edit' submission}}edit{{/link-to}}</span>
+		<span> | </span>
+		<span>submitted {{moment-format submission.createdOn}}</span>
+		{{#each submission.links as |link|}}
+			<span> | </span>
+			<a href="{{link.URL}}">{{link.title}}</a>
+		{{/each}}
+	</p>
+</div>

@@ -1,5 +1,7 @@
 import Ember from 'ember';
 
+// TODO: DELETE ITEM
+
 export default Ember.Mixin.create({
 	afterModel(item, transition) {
 		transition.send('newLink', item);
@@ -12,8 +14,9 @@ export default Ember.Mixin.create({
 	  },
 
 	  saveItem(newItem) {
+	  	newItem.set('updatedOn', new Date());
 	  	this._destroyEmptyLinks(newItem).then(Ember.RSVP.all(newItem.get('links').invoke('save')).then(() => {
-	  		newItem.save().then(() => this.sendAction('transitionAfterSave'));
+	  		newItem.save().then(() => this.send('transitionAfterSave'));
 	  	}));
 	  },
 
@@ -24,9 +27,11 @@ export default Ember.Mixin.create({
 
 	_destroyEmptyLinks(item) {
 		let promises = [];
-		item.get('links').forEach((link) => {
-			if (link.get('isEmpty')) { promises.push(link.destroyRecord()); }
-		});
+		let links = item.get('links');
+		for (let i = links.get('length') - 1; i >= 0; i--) {
+			let link = links.objectAt(i);
+			if (link.get('eitherIsEmpty')) { promises.push(link.destroyRecord()); }
+		}
 		return Ember.RSVP.all(Ember.$.makeArray(promises));
 	}
 });

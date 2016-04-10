@@ -3,7 +3,7 @@ import SubmissionRouteAndPostRouteOverlap from 'oddcode/mixins/submission-route-
 
 export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
 	model() {
-		return this.store.createRecord('post');
+		return this.store.createRecord('submission');
 	},
 
 	actions: {

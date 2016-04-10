@@ -8,10 +8,12 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('submit');
   this.route('admin', function() {
-    this.route(':post_id', function() {});
+    this.route('posts', function() {
+      this.route('edit', { path: "/:post_id/edit" });
+    });
 
-    this.route('edit', {
-      path: '/:post_id/edit'
+    this.route('submissions', function() {
+      this.route('edit', { path: "/:submission_id/edit" });
     });
   });
   this.route('login');

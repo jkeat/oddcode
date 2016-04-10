@@ -8,7 +8,7 @@ export default Ember.Mixin.create({
 		updateLinkTriggered() {
 			const links = this.get('item.links');
 			if (links.get('lastObject').get('title') || links.get('lastObject').get('URL')) {
-				if (links.get('length') < 3) {
+				if (links.get('length') < 4) {
 					this.sendAction('newLink', this.get('item'));
 				}
 			}

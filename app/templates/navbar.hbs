@@ -1,13 +1,15 @@
 <div class="measure">
 	<div class="navbar p1">
-		<div class="txt--left">
+		<div>
 			<div class="logo">{{#link-to 'index'}}Uncommon Directory{{/link-to}}</div>
 		</div>
-		<div class="txt--right">
-			{{#if session.isAuthenticated}}
-				<div style="font-size: 8px; line-height: 26px"><a href="" {{action 'signOut'}}>Log out</a></div>
+		{{#if session.isAuthenticated}}
+			<div>
+				<div><a href="" {{action 'signOut'}}>Log out</a></div>
 				<div>{{#link-to 'admin'}}Admin{{/link-to}}</div>
-			{{/if}}
+			</div>
+		{{/if}}
+		<div>
 			<div>{{#link-to 'submit'}}Submit{{/link-to}}</div>
 		</div>
 	</div>

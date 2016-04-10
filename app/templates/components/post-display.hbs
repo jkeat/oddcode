@@ -8,7 +8,7 @@
 			<p class="description">{{post.description}}</p>
 			<p class="footer">
 				{{#if session.isAuthenticated}}
-					<span>{{#link-to 'admin.edit' post}}edit{{/link-to}} | </span>
+					<span>{{#link-to 'admin.posts.edit' post}}edit{{/link-to}} | </span>
 				{{/if}}
 				<span>{{relative-date post.createdOn}}</span>
 				{{#each post.links as |link|}}

@@ -1,0 +1,11 @@
+<marquee behavior="alternate">
+	<h4 class="my1">YOU'RE REVIEWING A SUBMISSION</h4>
+</marquee>
+
+{{submission-form session=session item=model submitItem='saveItem' linkSave='saveLink' linkDelete='deleteLink' newLink='newLink'submitButtonText="Save"}}
+
+<hr>
+
+<div class="py2 txt--center">
+	<button class="btn bg--white" {{action 'approveSubmission' model}}>Approve submission</button>
+</div>

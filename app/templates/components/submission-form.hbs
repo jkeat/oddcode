@@ -1,4 +1,4 @@
-<form class="post-form" role="form" {{action 'formSubmitted' item on="submit"}}>
+<form class="norm-form" role="form" {{action 'formSubmitted' item on="submit"}}>
 	<label for="URL">URL*</label>
 	{{input type="url" name="URL" value=item.URL placeholder="http://www.example.directory" maxlength="1000" required="true"}}
 
@@ -27,6 +27,9 @@
 		</table>
 	</div>
 
-	<input type="submit" value="Submit">
-	<div class="txt--center small muted">we'll review it semi-ASAP</div>
+	<input class="btn bg--light-gray" type="submit" value="{{submitButtonText}}">
+
+	{{#if textUnderSubmitButton}}
+		<div class="txt--center small muted">{{textUnderSubmitButton}}</div>
+	{{/if}}
 </form>
