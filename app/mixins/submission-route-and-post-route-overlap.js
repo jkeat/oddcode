@@ -16,13 +16,24 @@ export default Ember.Mixin.create({
 	  saveItem(newItem) {
 	  	newItem.set('updatedOn', new Date());
 	  	this._destroyEmptyLinks(newItem).then(Ember.RSVP.all(newItem.get('links').invoke('save')).then(() => {
-	  		newItem.save().then(() => this.send('transitionAfterSave'));
+	  		newItem.save().then(() => { this.send('afterSave', newItem); });
 	  	}));
 	  },
 
-	  transitionAfterSave() {
-	  	this.transitionTo('index');
+	  afterSave(item) {
+	  	this.send('newLink', item);
 	  },
+
+	  deleteItem(item) {
+	  	const confirmation = confirm("DELETE?");
+	  	if (confirmation) {
+	  		Ember.RSVP.all(item.get('links').invoke('destroyRecord')).then(() => {
+	  			item.destroyRecord().then(() => {
+	  				this.send('afterDelete');
+	  			});
+	  		});
+	  	}
+	  }
 	},
 
 	_destroyEmptyLinks(item) {
@@ -30,7 +41,10 @@ export default Ember.Mixin.create({
 		let links = item.get('links');
 		for (let i = links.get('length') - 1; i >= 0; i--) {
 			let link = links.objectAt(i);
-			if (link.get('eitherIsEmpty')) { promises.push(link.destroyRecord()); }
+			if (link.get('eitherIsEmpty')) {
+				links.removeObject(link);
+				promises.push(link.destroyRecord()); 
+			}
 		}
 		return Ember.RSVP.all(Ember.$.makeArray(promises));
 	}

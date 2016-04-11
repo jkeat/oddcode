@@ -7,3 +7,11 @@
 		{{post-display post=post session=session}}
 	{{/each}}
 </div>
+
+<div class="txt--center mb2 pb2">
+	{{#if endResults}}
+		<span class="muted">That's all.</span>
+	{{else}}
+		<a href="" {{action 'loadMore'}}>Load more</a>
+	{{/if}}
+</div>

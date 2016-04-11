@@ -1,10 +1,14 @@
 import Ember from 'ember';
-import AdminRoute from 'oddcode/mixins/admin-route';
 import SubmissionRouteAndPostRouteOverlap from 'oddcode/mixins/submission-route-and-post-route-overlap';
 
-export default Ember.Route.extend(AdminRoute, SubmissionRouteAndPostRouteOverlap, {
+export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
 	model(params) {
 		return this.store.findRecord('post', params.post_id);
+	},
+
+	setupController(controller, model) {
+	    this._super(controller, model);
+	    controller.set('createdOnText', 'Approved');
 	},
 
 	actions: {
@@ -28,15 +32,19 @@ export default Ember.Route.extend(AdminRoute, SubmissionRouteAndPostRouteOverlap
 				Ember.RSVP.all(newSubmission.get('links').invoke('save')).then(() => {
 					newSubmission.save().then(() => {
 						model.destroyRecord().then(() => {
-							this.send('transitionAfterSave');
+							this.send('afterUnapprove', newSubmission);
 						});
 					});
 				});
 			});
 		},
 
-	  	transitionAfterSave() {
-	  		this.transitionTo('admin.index');
+	  	afterUnapprove(model) {
+	  		this.transitionTo('submission', newSubmission);
+	  	},
+
+	  	afterDelete() {
+	  		this.transitionTo('index');
 	  	},
 
 	  	willTransition() {

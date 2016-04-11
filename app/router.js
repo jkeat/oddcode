@@ -16,7 +16,7 @@ Router.map(function() {
       this.route('edit', { path: "/:submission_id/edit" });
     });
   });
-  this.route('login');
+  this.route('account');
 });
 
 export default Router;

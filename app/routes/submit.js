@@ -7,7 +7,7 @@ export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
 	},
 
 	actions: {
-	  transitionAfterSave() {
+	  afterSave() {
 	  	this.transitionTo('index');
 	  },
 

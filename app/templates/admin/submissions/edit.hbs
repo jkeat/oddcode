@@ -2,10 +2,15 @@
 	<h4 class="my1">YOU'RE REVIEWING A SUBMISSION</h4>
 </marquee>
 
-{{submission-form session=session item=model submitItem='saveItem' linkSave='saveLink' linkDelete='deleteLink' newLink='newLink'submitButtonText="Save"}}
+{{submission-form class="pb1" session=session item=model submitItem='saveItem' linkSave='saveLink' linkDelete='deleteLink' newLink='newLink' submitButtonText="Save"}}
 
 <hr>
 
-<div class="py2 txt--center">
-	<button class="btn bg--white" {{action 'approveSubmission' model}}>Approve submission</button>
+{{partial 'item-date-info'}}
+
+<div class="py1">
+	<button class="btn btn--s bg--white" {{action 'approveSubmission' model}}>Approve submission</button>
+	<button class="btn btn--s bg--white btn--danger ml2" {{action 'deleteItem' model}}>Delete Submission</button>
 </div>
+
+<br>

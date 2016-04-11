@@ -1,0 +1,40 @@
+.norm-form table {
+	width: 100%;
+}
+.norm-form table th {
+	font-variant: normal;
+	font-weight: normal;
+}
+.norm-form table td:first-child,
+.norm-form table th:first-child {
+	padding-left: 0;
+}
+.norm-form table td:not(:last-child),
+.norm-form table th:not(:last-child) {
+	padding-right: 0.25rem;
+}
+.norm-form table td:not(:first-child),
+.norm-form table th:not(:first-child) {
+	padding-left: 0.25rem;
+}
+.norm-form input {
+	padding: 0.2rem 0.3rem;
+}
+.norm-form input[type=submit] {
+	width: auto;
+	padding: 2px 6px 3px;
+	background:ButtonFace; 
+	color:ButtonText; 
+	border:2px outset ButtonFace;
+	font: -webkit-control;
+	font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    font-size: 13px;
+    line-height: normal;
+    font-family: BlinkMacSystemFont;
+}
+.norm-form input[type=submit]:active {
+	border-style:inset; 
+}

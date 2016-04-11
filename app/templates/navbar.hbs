@@ -3,9 +3,9 @@
 		<div>
 			<div class="logo">{{#link-to 'index'}}Uncommon Directory{{/link-to}}</div>
 		</div>
-		{{#if session.isAuthenticated}}
+		{{#if session.currentUser.isAdmin}}
 			<div>
-				<div><a href="" {{action 'signOut'}}>Log out</a></div>
+				<div>{{#link-to 'account'}}Account{{/link-to}}</div>
 				<div>{{#link-to 'admin'}}Admin{{/link-to}}</div>
 			</div>
 		{{/if}}

@@ -6,14 +6,14 @@
 	{{input type="text" name="title" value=item.title placeholder="Click bait" required="true"}}
 
 	<label for="description">Description*</label>
-	{{input type="text" name="description" value=item.description placeholder="A short sentence" maxlength="1000" required="true"}}
+	{{input type="text" name="description" value=item.description placeholder="A sentence" maxlength="1000" required="true"}}
 
 	<label>Other relevant links</label>
 	<div class="link-form">
 		<table>
 			<tr>
-				<th>Link URL</th>
-				<th>Link text</th>
+				<th class="small muted">Link URL</th>
+				<th class="small muted">Link text</th>
 			</tr>
 		{{#each item.links as |link|}}
 			<tr>
@@ -27,9 +27,11 @@
 		</table>
 	</div>
 
-	<input class="btn bg--light-gray" type="submit" value="{{submitButtonText}}">
+	<input type="submit" value="{{submitButtonText}}">
 
 	{{#if textUnderSubmitButton}}
-		<div class="txt--center small muted">{{textUnderSubmitButton}}</div>
+		<div class="small muted">{{textUnderSubmitButton}}</div>
 	{{/if}}
 </form>
+
+{{!-- This is virtually identical to templates/components/post-form.hbs, but that may change. --}}

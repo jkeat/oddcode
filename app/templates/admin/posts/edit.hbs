@@ -2,10 +2,15 @@
 	<h4 class="my1">YOU'RE EDITING A POST</h4>
 </marquee>
 
-{{post-form session=session item=model submitItem='saveItem' linkSave='saveLink' linkDelete='deleteLink' newLink='newLink'}}
+{{post-form class="pb2" session=session item=model submitItem='saveItem' linkSave='saveLink' linkDelete='deleteLink' newLink='newLink'}}
 
 <hr>
 
-<div class="py2 txt--center">
-	<button class="btn bg--white" {{action 'unapprovePost' model}}>Unpublish Post</button>
+{{partial 'item-date-info'}}
+
+<div class="py1">
+	<button class="btn btn--s bg--white" {{action 'unapprovePost' model}}>Unpublish Post</button>
+	<button class="btn btn--s bg--white btn--danger" {{action 'deleteItem' model}}>Delete Post</button>
 </div>
+
+<br>
