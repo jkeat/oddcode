@@ -17,6 +17,10 @@
 				font-size: 0.7rem;
 				color: $grey;
 				line-height: 1.4rem;
+
+				.etc-link {
+					text-transform: lowercase;
+				}
 			}
 		}
 

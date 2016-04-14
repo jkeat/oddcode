@@ -19,7 +19,11 @@ export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
 	  willTransition() {
 	    let submission = this.controller.get('model');
 	    if (submission.get('isNew')) {
-	      submission.get('links').invoke('destroyRecord');
+	      let links = submission.get('links');
+	      for (let i = links.get('length') - 1; i >= 0; i--) {
+	      	let link = links.objectAt(i);
+	      	link.destroyRecord();
+	      }
 	      submission.destroyRecord();
 	    }
 	  }

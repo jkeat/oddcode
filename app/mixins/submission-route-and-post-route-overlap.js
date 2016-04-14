@@ -1,7 +1,5 @@
 import Ember from 'ember';
 
-// TODO: DELETE ITEM
-
 export default Ember.Mixin.create({
 	afterModel(item, transition) {
 		transition.send('newLink', item);
@@ -49,4 +47,6 @@ export default Ember.Mixin.create({
 		}
 		return Ember.RSVP.all(Ember.$.makeArray(promises));
 	}
+
+
 });

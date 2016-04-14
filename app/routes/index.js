@@ -4,16 +4,17 @@ export default Ember.Route.extend({
 	perPage: 5,
 
     pageTitles: ["Unhelpful, pretentious internet projects",
-                "Make something people kind of like",
+                "Make something people kinda like",
                 "Software is sucking off & swallowing the world",
                 "How do we solve buzzwords for the deaf?",
                 "Create things that are physically addictive",
                 "You have to be mentally ill to dare to create",
-                "Crafted with what I think is <3",
+                "Crafted with what I think might be <3",
                 "Telopods, microscoops, hypnotism",
                 "I'm trying to teach my mailman about Email",
                 "I'm trying to teach my hamster about Pets.com",
-                "I go on the internet, but I also read"],
+                "I go on the internet, but I also read",
+                "I make coding jokes and then don't laugh"],
 
 	model() {
 		return this.store.query('post', {

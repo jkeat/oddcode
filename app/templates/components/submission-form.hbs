@@ -1,12 +1,12 @@
 <form class="norm-form" role="form" {{action 'formSubmitted' item on="submit"}}>
 	<label for="URL">URL*</label>
-	{{input type="url" name="URL" value=item.URL placeholder="http://www.example.directory" maxlength="1000" required="true"}}
+	{{input type="url" name="URL" value=item.URL placeholder="http://www.example.directory" maxlength="350" required="true"}}
 
 	<label for="title">Title*</label>
 	{{input type="text" name="title" value=item.title placeholder="Click bait" required="true"}}
 
-	<label for="description">Description*</label>
-	{{input type="text" name="description" value=item.description placeholder="A sentence" maxlength="1000" required="true"}}
+	<label for="description">Description</label>
+	{{input type="text" name="description" value=item.description placeholder="A sentence" maxlength="350"}}
 
 	<label>Other relevant links</label>
 	<div class="link-form">
@@ -18,7 +18,7 @@
 		{{#each item.links as |link|}}
 			<tr>
 				<td>{{input type="url" value=link.URL placeholder="Link URL" keyUp=(action 'updateLinkTriggered') }}</td>
-				<td>{{input type="text" value=link.title placeholder="e.x. blog post" keyUp=(action 'updateLinkTriggered') maxlength="20"}}</td>
+				<td>{{input type="text" value=link.title placeholder="e.x. blog post" keyUp=(action 'updateLinkTriggered') maxlength="40"}}</td>
 				{{#unless (eq link item.links.lastObject)}}
 					<td><a href="" {{action "deleteLinkTriggered" link}}>Delete</a></td>
 				{{/unless}}

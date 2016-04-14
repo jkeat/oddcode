@@ -11,5 +11,6 @@ export default DS.Model.extend({
   post: DS.belongsTo('post'),
 
   bothFilled: Ember.computed.and('URL', 'title'),
-  eitherIsEmpty: Ember.computed.not('bothFilled')
+  eitherIsEmpty: Ember.computed.not('bothFilled'),
+  eitherIsFilled: Ember.computed.or('URL', 'title')
 });

@@ -1,8 +1,6 @@
 {{partial 'navbar' session=session}}
 
-<marquee class="marquee" behavior="alternate">
-	<h4 class="my1">{{pageTitle}}</h4>
-</marquee>
+{{marquee-display pageTitle=pageTitle}}
 
 <div class="measure px1 pb2">
 	{{outlet}}

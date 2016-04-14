@@ -8,7 +8,7 @@ export default Ember.Mixin.create({
 	},
 
 	actions: {
-		error(e) {
+		error() {
 			this.transitionTo('account');
 		}
 	}

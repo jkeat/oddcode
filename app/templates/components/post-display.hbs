@@ -12,8 +12,8 @@
 				{{/if}}
 				<span>{{relative-date post.createdOn}}</span>
 				{{#each post.links as |link|}}
-					|
-					<a href="{{link.URL}}">{{link.title}}</a>
+					<span> | </span>
+					<a class="etc-link" href="{{link.URL}}">{{link.title}}</a>
 				{{/each}}	
 			</p>
 		</div>

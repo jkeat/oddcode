@@ -1,7 +1,8 @@
 import Ember from 'ember';
 import SubmissionRouteAndPostRouteOverlap from 'oddcode/mixins/submission-route-and-post-route-overlap';
+import SubmissionRouteAndPostRouteAdminOverlap from 'oddcode/mixins/submission-route-and-post-route-admin-overlap';
 
-export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
+export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, SubmissionRouteAndPostRouteAdminOverlap, {
 	model(params) {
 		return this.store.findRecord('submission', params.submission_id);
 	},
@@ -48,12 +49,6 @@ export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
 
 	  	afterDelete() {
 	  		this.transitionTo('admin.index');
-	  	},
-
-	  	willTransition() {
-	    	let model = this.controller.get('model');
-			model.rollbackAttributes();
-			model.get('links').toArray().forEach(link => link.rollbackAttributes());
 	  	}
 	}
 });

@@ -1,7 +1,13 @@
 <div class="pt1 post-list">
-	{{#each model as |submission|}}
-		{{submission-display submission=submission}}
-	{{/each}}
+	{{#if model}}
+		{{#each model as |submission|}}
+			{{submission-display submission=submission}}
+		{{/each}}
+	{{else}}
+		<div class="txt--center muted mt1">(There aren't any)</div>
+	{{/if}}
 </div>
 
-{{partial 'infinite-scroll-button'}}
+{{#unless model}}
+	{{partial 'infinite-scroll-button'}}
+{{/unless}}

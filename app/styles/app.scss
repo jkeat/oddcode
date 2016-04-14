@@ -6,31 +6,10 @@
 @import 'components/post-display';
 @import 'components/submission-display';
 @import 'components/filepicker-wrapper';
+@import 'components/marquee-display';
 
 .post-list .post-display {
 	margin-bottom: 3rem;
-}
-
-.marquee h4 {
-	text-transform: uppercase;
-	font-size: 1rem;
-	letter-spacing: -0.3px;
-}
-@media screen and (min-width: 512px) {
-	.marquee h4 {
-		font-size: 1.1rem;
-		letter-spacing: 0;
-	}
-}
-@media screen and (min-width: 768px) {
-	.marquee h4 {
-		font-size: 1.2rem;
-	}
-}
-@media screen and (min-width: 1100px) {
-	.marquee h4 {
-		font-size: 1.5rem;
-	}
 }
 
 
