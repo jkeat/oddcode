@@ -1,7 +1,3 @@
-<marquee behavior="alternate">
-	<h4 class="my1">YOU'RE REVIEWING A SUBMISSION</h4>
-</marquee>
-
 {{submission-form class="pb1" session=session item=model submitItem='saveItem' linkSave='saveLink' linkDelete='deleteLink' newLink='newLink' submitButtonText="Save"}}
 
 <hr>
@@ -12,5 +8,3 @@
 	<button class="btn btn--s bg--white" {{action 'approveSubmission' model}}>Approve submission</button>
 	<button class="btn btn--s bg--white btn--danger ml2" {{action 'deleteItem' model}}>Delete Submission</button>
 </div>
-
-<br>

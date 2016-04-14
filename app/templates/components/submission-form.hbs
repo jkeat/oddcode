@@ -27,11 +27,18 @@
 		</table>
 	</div>
 
+	{{#if session.currentUser.isAdmin}}
+		<label>Thumbnail</label>		
+		{{filepicker-wrapper item=item class="mb2"}}
+	{{/if}}
+
 	<input type="submit" value="{{submitButtonText}}">
 
-	{{#if textUnderSubmitButton}}
-		<div class="small muted">{{textUnderSubmitButton}}</div>
-	{{/if}}
+	{{#unless session.currentUser.isAdmin}}
+		{{#if textUnderSubmitButton}}
+			<div class="small muted">{{textUnderSubmitButton}}</div>
+		{{/if}}
+	{{/unless}}
 </form>
 
 {{!-- This is virtually identical to templates/components/post-form.hbs, but that may change. --}}

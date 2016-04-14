@@ -1,0 +1,15 @@
+<div class="filepicker">
+	{{#if item.imageURL}}
+		<img src="{{item.imageURL}}" class="mb1">
+	{{/if}}
+	<a href="" {{action 'pickWithFilepicker'}}>
+		{{#if item.imageURL}}
+			Change image
+		{{else}}
+			Select image
+		{{/if}}
+	</a>
+	{{#if openPicker}}
+		{{ember-filepicker pickerOptions=imageOptions onSelection='fileSelected' onClose='onClose' onError='onError'}}
+	{{/if}}
+</div>

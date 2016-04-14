@@ -1,21 +1,28 @@
 .norm-form table {
 	width: 100%;
 }
-.norm-form table th {
+.norm-form table tr th {
 	font-variant: normal;
 	font-weight: normal;
 }
-.norm-form table td:first-child,
-.norm-form table th:first-child {
-	padding-left: 0;
-}
-.norm-form table td:not(:last-child),
-.norm-form table th:not(:last-child) {
+.norm-form table tr td:not(:last-child),
+.norm-form table tr th:not(:last-child) {
 	padding-right: 0.25rem;
 }
-.norm-form table td:not(:first-child),
-.norm-form table th:not(:first-child) {
+.norm-form table tr td:not(:first-child),
+.norm-form table tr th:not(:first-child) {
 	padding-left: 0.25rem;
+}
+.norm-form table tr td:first-child,
+.norm-form table tr th:first-child {
+	padding-left: 0;
+}
+.norm-form table tr:not(:last-child) td:last-child,
+.norm-form table tr:not(:last-child) th:last-child {
+	padding-right: 0;
+}
+.norm-form table tr:nth-child(2) td:last-child {
+	padding-right: 0;
 }
 .norm-form input {
 	padding: 0.2rem 0.3rem;

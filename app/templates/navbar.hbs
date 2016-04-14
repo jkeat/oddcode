@@ -1,16 +1,14 @@
-<div class="measure">
-	<div class="navbar p1">
+<div class="navbar py1 px2">
+	<div>
+		<div class="logo">{{#link-to 'index'}}Fix the World{{/link-to}}</div>
+	</div>
+	{{#if session.currentUser.isAdmin}}
 		<div>
-			<div class="logo">{{#link-to 'index'}}Uncommon Directory{{/link-to}}</div>
+			<div>{{#link-to 'account'}}Account{{/link-to}}</div>
+			<div>{{#link-to 'admin'}}Admin{{/link-to}}</div>
 		</div>
-		{{#if session.currentUser.isAdmin}}
-			<div>
-				<div>{{#link-to 'account'}}Account{{/link-to}}</div>
-				<div>{{#link-to 'admin'}}Admin{{/link-to}}</div>
-			</div>
-		{{/if}}
-		<div>
-			<div>{{#link-to 'submit'}}Submit{{/link-to}}</div>
-		</div>
+	{{/if}}
+	<div>
+		<div>{{#link-to 'submit'}}Submit{{/link-to}}</div>
 	</div>
 </div>

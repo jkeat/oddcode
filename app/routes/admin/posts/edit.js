@@ -8,6 +8,7 @@ export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
 
 	setupController(controller, model) {
 	    this._super(controller, model);
+	    this.controllerFor('application').set("pageTitle", "You're editing an approved post");
 	    controller.set('createdOnText', 'Approved');
 	},
 
@@ -32,15 +33,15 @@ export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
 				Ember.RSVP.all(newSubmission.get('links').invoke('save')).then(() => {
 					newSubmission.save().then(() => {
 						model.destroyRecord().then(() => {
-							this.send('afterUnapprove', newSubmission);
+							this.send('afterUnapprove');
 						});
 					});
 				});
 			});
 		},
 
-	  	afterUnapprove(model) {
-	  		this.transitionTo('submission', newSubmission);
+	  	afterUnapprove() {
+	  		this.transitionTo('index');
 	  	},
 
 	  	afterDelete() {

@@ -1,11 +1,10 @@
-<div class="meausre">
-	<hr>
-	{{#if session.isAuthenticated}}
-		<div>You are {{session.currentUser.name}}</div>
-		<div>You are{{#unless session.currentUser.isAdmin}}n't{{/unless}} an admin</div>
-		<div>You joined {{moment-calendar session.currentUser.joinedOn}}</div>
-		<a href="" {{action 'signOut'}}>Log Out</a>
-	{{else}}
-		<a href="" {{action "signIn" "google"}}>Sign in with Google</a>
-	{{/if}}
-</div>
+{{#if session.isAuthenticated}}
+	<div>You are {{session.currentUser.name}}</div>
+	<div>You are{{#unless session.currentUser.isAdmin}}n't{{/unless}} an admin{{#unless session.currentUser.isAdmin}}, so this account doesn't do anything.{{/unless}}</div>
+	<div>You joined {{moment-calendar session.currentUser.joinedOn}}</div>
+	<a href="" {{action 'signOut'}}>Log Out</a>
+{{else}}
+	<a href="" {{action "signIn" "google"}}>Sign in</a>
+	<div class="muted">The security of our site depends on people not finding this page</div>
+	<div class="muted">Kindly refrain from sharing the URL with anyone</div>
+{{/if}}

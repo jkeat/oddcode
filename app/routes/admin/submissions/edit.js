@@ -8,6 +8,7 @@ export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
 
 	setupController(controller, model) {
 	    this._super(controller, model);
+	    this.controllerFor('application').set("pageTitle", "You're editing an unapproved submission");
 	    controller.set('createdOnText', 'Submitted');
 	},
 

@@ -3,6 +3,7 @@ export default Ember.Route.extend({
 	beforeModel: function() {
 	  	return this.get("session").fetch().catch(function() {});
 	},
+
 	actions: {
 	  	signIn(provider) {
 	    	this.get("session").open("firebase", { provider: provider}).then(function(/* data */) {
@@ -17,11 +18,5 @@ export default Ember.Route.extend({
 	    	         there's a way to clear the store cache that will fix that, but nothing I tried was working. */
 	    	window.location = this.router.generate('account');
 	  	},
-	  	error(error) {
-			if (error) {
-				console.log(error);
-				return this.transitionTo('submit');
-			}
-		}
 	}
 });

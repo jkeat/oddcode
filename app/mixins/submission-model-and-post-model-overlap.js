@@ -15,5 +15,6 @@ export default Ember.Mixin.create({
 	createdOn: DS.attr('date', { defaultValue() { return new Date(); } }),
 	updatedOn: DS.attr('date', { defaultValue() { return new Date(); } }),
 	createdTimestamp: DS.attr('number', { defaultValue() { return new Date().getTime(); } }),
+	updatedTimestamp: DS.attr('number', { defaultValue() { return new Date().getTime(); } }),
 	imageURL: DS.attr('string'),
 });

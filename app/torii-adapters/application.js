@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Object.extend({
   firebase: Ember.inject.service(),
   store: Ember.inject.service(),
+  
 
   /**
    * Executed after Firebase authentication.

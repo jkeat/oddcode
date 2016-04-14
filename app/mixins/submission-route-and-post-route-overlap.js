@@ -15,6 +15,7 @@ export default Ember.Mixin.create({
 
 	  saveItem(newItem) {
 	  	newItem.set('updatedOn', new Date());
+	  	newItem.set('updatedTimestamp', new Date().getTime());
 	  	this._destroyEmptyLinks(newItem).then(Ember.RSVP.all(newItem.get('links').invoke('save')).then(() => {
 	  		newItem.save().then(() => { this.send('afterSave', newItem); });
 	  	}));

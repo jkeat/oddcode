@@ -1,7 +1,3 @@
-<marquee behavior="alternate">
-	<h4 class="my1">YOU'RE EDITING A POST</h4>
-</marquee>
-
 {{post-form class="pb2" session=session item=model submitItem='saveItem' linkSave='saveLink' linkDelete='deleteLink' newLink='newLink'}}
 
 <hr>
@@ -12,5 +8,3 @@
 	<button class="btn btn--s bg--white" {{action 'unapprovePost' model}}>Unpublish Post</button>
 	<button class="btn btn--s bg--white btn--danger" {{action 'deleteItem' model}}>Delete Post</button>
 </div>
-
-<br>

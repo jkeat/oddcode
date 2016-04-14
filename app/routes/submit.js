@@ -6,6 +6,11 @@ export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
 		return this.store.createRecord('submission');
 	},
 
+	setupController(controller, model) {
+		this._super(controller, model);
+		this.controllerFor('application').set("pageTitle", "You're submitting a new project");
+	},
+
 	actions: {
 	  afterSave() {
 	  	this.transitionTo('index');
