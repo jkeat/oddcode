@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	imageOptions: {
 	    mimetypes: ['image/*'],
-	    imageDim: [100, 150],
+	    imageDim: [210, 140],
 	    cropRatio: 1.5, // 3:2
 	},
 

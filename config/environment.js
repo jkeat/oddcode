@@ -9,7 +9,7 @@ module.exports = function(environment) {
     torii: {
       sessionServiceName: 'session'
     },
-    filepickerKey: 'ABcMVtQLoQ8ad3Eypb7Siz',
+    filepickerKey: 'AfOU7D1T5a62UcNWDA3ADz',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {

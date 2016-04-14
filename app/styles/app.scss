@@ -13,18 +13,18 @@
 
 .marquee h4 {
 	text-transform: uppercase;
-	font-size: 0.9rem;
-	letter-spacing: -0.2px;
+	font-size: 1rem;
+	letter-spacing: -0.3px;
 }
 @media screen and (min-width: 512px) {
 	.marquee h4 {
-		font-size: 0.8rem;
+		font-size: 1.1rem;
 		letter-spacing: 0;
 	}
 }
 @media screen and (min-width: 768px) {
 	.marquee h4 {
-		font-size: 1.1rem;
+		font-size: 1.2rem;
 	}
 }
 @media screen and (min-width: 1100px) {

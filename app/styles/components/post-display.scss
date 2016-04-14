@@ -1,22 +1,17 @@
 .post-display {
 	.media {
-		align-items: center;
-		overflow-x: scroll;
-		overflow-y: hidden;
-
 		.media-body {
-			white-space: nowrap;
-
 			h3, p {
 				margin: 0;
 			}
 			.header {
 				font-size: 1.1rem;
-				line-height: 1.7rem;
+				line-height: 1.5rem;
 			}
 			.description {
+				margin-top: 3px;
 				font-size: 0.8rem;
-				line-height: 1.1rem;
+				line-height: 1.2rem;
 			}
 			.footer {
 				font-size: 0.7rem;
@@ -47,8 +42,8 @@
 		@media screen and (min-width: 768px) {
 			.media-body {
 				.header {
-					font-size: 1.4rem;
-					line-height: 2.1rem;
+					font-size: 1.3rem;
+					line-height: 1.8rem;
 				}
 				.description {
 					font-size: 1rem;
