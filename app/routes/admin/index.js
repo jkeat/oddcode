@@ -32,6 +32,10 @@ export default Ember.Route.extend({
         		const orderedSubmissions = submissions.toArray().reverse();
         		this.controller.get('model').addObjects(orderedSubmissions);
         	});
+        },
+
+        willTransition() {
+            this.controller.set('endOfResults', false);
         }
     }
 });
