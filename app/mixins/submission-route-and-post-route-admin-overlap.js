@@ -24,7 +24,7 @@ export default Ember.Mixin.create({
 		let dirty = false;
 		links.forEach((link) => {
 			// Can't simply check its hasDirtyAttributes property; the link itself is new, so it's dirty
-			if (link.get('eitherIsFilled') && link.get('isNew')) { dirty = true; }
+			if ((link.get('eitherIsFilled') && link.get('isNew')) || (link.get('hasDirtyAttributes') && !link.get('isNew'))) { dirty = true; }
 		});
 		return dirty;
 	}
