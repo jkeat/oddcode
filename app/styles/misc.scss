@@ -1,0 +1,11 @@
+.btn.btn--danger {
+	border-color: #e78c7c;
+
+	&:hover {
+		background-color: rgba(170, 26, 26, 0.07);
+	}
+}
+
+.post-list .post-display {
+	margin-bottom: 3rem;
+}

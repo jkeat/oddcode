@@ -5,16 +5,57 @@ export default Ember.Route.extend({
 
     pageTitles: ["Unhelpful, pretentious internet projects",
                 "Make something people kinda like",
-                "Software is sucking off & swallowing the world",
-                "How do we solve buzzwords for the deaf?",
+                "Software is sucking & swallowing the world",
+                "So how do we solve buzzwords for the deaf?",
                 "Create things that are physically addictive",
                 "You have to be mentally ill to dare to create",
                 "Crafted with what I think might be <3",
                 "Telopods, microscoops, hypnotism",
-                "I'm trying to teach my mailman about Email",
-                "I'm trying to teach my hamster about Pets.com",
-                "I go on the internet, but I also read",
-                "I make coding jokes and then don't laugh"],
+                "I'm trying to teach my stupid mailman about Email",
+                "I'm trying to teach my stupid hamster about Pets.com",
+                "I go on the internet, but I also own books",
+                "I make niche jokes and then don't laugh"],
+
+    aboutIntros: ["hi! ",
+                  "yo! ",
+                  "hi. ",
+                  "welcome! ",
+                  "hey! ",
+                  "hey there! ",
+                  "hey. "],
+
+    aboutPreStarts: ["I'm ",
+                     "we're ",
+                     "think of us as ",
+                     "essentially we're ",
+                     "essentially I'm ",
+                     "basically I'm ",
+                     "basically we're ",
+                     "basically this site is ",
+                     "think of us as ",
+                     "think of me as ",
+                     "the general idea is to be "],
+
+    aboutStarts: ["Product Hunt",
+                  "Hacker News",
+                  "Product Hunt",
+                  "Hacker News",
+                  "Stumble Upon",
+                  "Lobste.rs",
+                  "Wired",
+                  "Dribbble"],
+
+    aboutEnds: [" for your ironic cousin",
+                ": The Bad Parts",
+                " for little boys",
+                " without a lot of basic features",
+                " with way more corn syrup",
+                " for punk clowns",
+                " without try-hard nerds",
+                " but like, there's less pressure",
+                " with no aspirations",
+                " for people who hate it there",
+                " but the buzzwords are ironic"],
 
 	model() {
 		return this.store.query('post', {
@@ -27,6 +68,18 @@ export default Ember.Route.extend({
         this._super(controller, model);
         const pageTitle = this.get('pageTitles')[Math.floor(Math.random()*this.get('pageTitles.length'))];
         this.controllerFor('application').set("pageTitle", pageTitle);
+
+        let tinyFooterPreStart = this.get('aboutPreStarts')[Math.floor(Math.random()*this.get('aboutPreStarts.length'))];
+        if (Math.random() < 0.5) {
+            const tinyFooterIntro = this.get('aboutIntros')[Math.floor(Math.random()*this.get('aboutIntros.length'))];
+            tinyFooterPreStart = tinyFooterIntro + tinyFooterPreStart;
+        }
+        const tinyFooterStart = this.get('aboutStarts')[Math.floor(Math.random()*this.get('aboutStarts.length'))];
+        const tinyFooterEnd = this.get('aboutEnds')[Math.floor(Math.random()*this.get('aboutEnds.length'))];
+        const tinyFooterAbout = tinyFooterPreStart + tinyFooterStart + tinyFooterEnd;
+        this.controllerFor('application').set("showFooter", true);
+        this.controllerFor('application').set("tinyFooterAbout", tinyFooterAbout);
+
 
         if (controller.get('model.length') < this.get('perPage')) {
             controller.set('endOfResults', true);
@@ -46,6 +99,10 @@ export default Ember.Route.extend({
         		const orderedPosts = posts.toArray().reverse();
         		this.controller.get('model').addObjects(orderedPosts);
         	});
+        },
+
+        willTransition() {
+            this.controllerFor('application').set("showFooter", false);
         }
     }
 });
