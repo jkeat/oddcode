@@ -11,7 +11,7 @@ export default Ember.Mixin.create({
 	URL: DS.attr('string'),
 	description: DS.attr('string'),
 	links: DS.hasMany('link'),
-	tags: DS.hasMany('tag'),
+	collections: DS.hasMany('collection'),
 	createdOn: DS.attr('date', { defaultValue() { return new Date(); } }),
 	updatedOn: DS.attr('date', { defaultValue() { return new Date(); } }),
 	createdTimestamp: DS.attr('number', { defaultValue() { return new Date().getTime(); } }),

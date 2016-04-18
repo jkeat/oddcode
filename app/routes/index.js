@@ -12,8 +12,7 @@ export default Ember.Route.extend({
 
     setupController(controller, model) {
         this._super(controller, model);
-        const pageTitle = this.get('pageTitles')[Math.floor(Math.random()*this.get('pageTitles.length'))];
-        this.controllerFor('application').set("pageTitle", pageTitle);
+        this.controllerFor('application').set("pageTitle", "Quality internet projects");
         this.controllerFor('application').set("showFooter", true);
         if (controller.get('model.length') < this.get('perPage')) {
             controller.set('endOfResults', true);
@@ -39,18 +38,5 @@ export default Ember.Route.extend({
             this.controllerFor('application').set("showFooter", false);
             this.controller.set('endOfResults', false);
         }
-  },
-
-  pageTitles: [ "Unhelpful, pretentious internet projects",
-                "Make something people kind of like",
-                "Software is sucking & swallowing the world",
-                "So how do we solve buzzwords for the deaf?",
-                "Create things that are physically addictive",
-                "You have to be mentally ill to dare to create",
-                "Crafted with what I think might be <3",
-                "Telopods, microscoops, hypnotism",
-                "I'm trying to teach my stupid mailman about Email",
-                "I'm trying to teach my stupid hamster about Pets.com",
-                "Product Hunt for your pretensious unemployed cousin",
-                "Hacker News with no try-hard nerds and more added sugar" ]
+  }
 });

@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('account');
   this.route('not-found', { path: "/*path" });
   this.route('error', { path: "/error/*path" });
+  this.route('about');
 });
 
 export default Router;
