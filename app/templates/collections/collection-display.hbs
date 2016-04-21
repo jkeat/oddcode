@@ -1,11 +1,7 @@
 <div class="py1 post-list">
-	{{#each model as |post|}}
+	{{#each model.posts as |post|}}
 		{{post-display post=post session=session}}
 	{{/each}}
 </div>
 
-{{partial 'infinite-scroll-button'}}
-
-<br>
-<br>
 <br>

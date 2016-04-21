@@ -23,7 +23,6 @@ export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, Submission
 				title: model.get('title'),
 				URL: model.get('URL'),
 				description: model.get('description'),
-				tags: model.get('tags'), // TODO
 				imageURL: model.get('imageURL')
 			});
 			let links = model.get('links'); // TODO: Simpler?

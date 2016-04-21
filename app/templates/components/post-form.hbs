@@ -27,10 +27,12 @@
 		</table>
 	</div>
 
-	{{#if session.currentUser.isAdmin}}
-		<label>Thumbnail</label>		
-		{{filepicker-wrapper item=item class="mb2"}}
-	{{/if}}
+	<label>Thumbnail</label>
+	{{filepicker-wrapper item=item class="mb1"}}
+
+	<label>Collection(s)</label>
+	{{input type="text" value=collectionsInput placeholder="bots, Mark D'Aston, useless" class="mb2"}}
+
 
 	<input type="submit" value="Save post">
 </form>

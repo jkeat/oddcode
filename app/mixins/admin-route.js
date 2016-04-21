@@ -5,11 +5,5 @@ export default Ember.Mixin.create({
 		if (!this.get('session.currentUser.isAdmin')) {
 			this.transitionTo('account');
 		}
-	},
-
-	actions: {
-		error() {
-			this.transitionTo('account');
-		}
 	}
 });

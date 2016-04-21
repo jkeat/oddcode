@@ -1,0 +1,5 @@
+{{#each model as |collection|}}
+	<div class="txt--center">
+		{{#link-to 'collections.collection-display' collection}}{{collection.name}}{{/link-to}}
+	</div>
+{{/each}}
