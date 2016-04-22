@@ -4,6 +4,7 @@ export default Ember.Route.extend({
 	perPage: 5,
 
 	model() {
+        // TODO: return all cached if peek at all cached is more than 5!
 		return this.store.query('post', {
 			orderBy: 'createdTimestamp',
 			limitToLast: this.get('perPage')

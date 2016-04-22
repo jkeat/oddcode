@@ -1,12 +1,15 @@
 .post-display {
 	.media {
 		.media-body {
+			position: relative;
+
 			h3, p {
 				margin: 0;
 			}
 			.header {
 				font-size: 1.1rem;
 				line-height: 1.5rem;
+				max-width: calc(100% - 100px);
 			}
 			.description {
 				margin-top: 3px;
@@ -20,6 +23,20 @@
 
 				.etc-link {
 					text-transform: lowercase;
+				}
+			}
+			.right {
+				position: absolute;
+				right: 0;
+				top: 0;
+				font-size: 0.7rem;
+				max-width: 100px;
+				overflow: scroll;
+				white-space: nowrap;
+
+				a {
+					color: #888;
+					text-decoration: none;
 				}
 			}
 		}

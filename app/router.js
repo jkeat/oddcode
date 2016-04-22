@@ -18,11 +18,13 @@ Router.map(function() {
   });
   this.route('account');
   this.route('collections', function() {
-    this.route('collection-display', { path: "/:collection_slug" });
+    // this.route('collection-display', { path: "/:collection_slug" });
+    this.route('collection-display', { path: "/:collection_id" });
   });
   this.route('about');
-  this.route('not-found', { path: "/*path" });
+  this.route('post-display', { path: "/:post_id" });
   this.route('error', { path: "/error/*path" });
+  this.route('not-found', { path: "/*path" });
 });
 
 export default Router;
