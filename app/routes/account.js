@@ -1,8 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	setupController(controller, model) {
-		this._super(controller, model);
-		this.controllerFor('application').set("pageTitle", "Get in or get out");
-	}
+	pageSettings: Ember.inject.service(),
+	
+	afterModel(model, transition) {
+        this.set('pageSettings.pageTitle', 'Get in or get out');
+    }
 });

@@ -3,13 +3,18 @@ import SubmissionRouteAndPostRouteOverlap from 'oddcode/mixins/submission-route-
 import SubmissionRouteAndPostRouteAdminOverlap from 'oddcode/mixins/submission-route-and-post-route-admin-overlap';
 
 export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, SubmissionRouteAndPostRouteAdminOverlap, {
+	pageSettings: Ember.inject.service(),
+	
 	model(params) {
 		return this.store.findRecord('submission', params.submission_id);
 	},
 
+	afterModel(model, transition) {
+        this.set('pageSettings.pageTitle', "You're editing an unapproved submission");
+    },
+
 	setupController(controller, model) {
 	    this._super(controller, model);
-	    this.controllerFor('application').set("pageTitle", "You're editing an unapproved submission");
 	    controller.set('createdOnText', 'Submitted');
 	},
 

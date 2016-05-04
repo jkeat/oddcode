@@ -1,12 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+	pageSettings: Ember.inject.service(),
+	
 	model() {
 		return this.store.findAll('collection');
 	},
 
-	setupController(controller, model) {
-	    this._super(controller, model);
-	    this.controllerFor('application').set("pageTitle", "Collections");
-	}
+	afterModel(model, transition) {
+        this.set('pageSettings.pageTitle', "Collections");
+    },
 });

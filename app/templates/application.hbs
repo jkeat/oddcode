@@ -1,11 +1,11 @@
 {{partial 'navbar' session=session}}
 
-{{marquee-display pageTitle=pageTitle}}
+{{marquee-display pageTitle=pageSettings.pageTitle}}
 
 <div class="measure px1 pb2">
 	{{outlet}}
 </div>
 
-{{#if showFooter}}
+{{#if pageSettings.showFooter}}
 	{{partial 'tiny-footer'}}
 {{/if}}

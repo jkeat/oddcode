@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	perPage: 5,
 
+    pageSettings: Ember.inject.service(),
+
 	model() {
         // TODO: return all cached if peek at all cached is more than 5!
 		return this.store.query('post', {
@@ -11,10 +13,13 @@ export default Ember.Route.extend({
 		}).then(posts => posts.toArray().reverse());
 	},
 
+    afterModel(model, transition) {
+        this.set('pageSettings.pageTitle', 'Quality Internet Projects');
+        this.set('pageSettings.showFooter', true);
+    },
+
     setupController(controller, model) {
         this._super(controller, model);
-        this.controllerFor('application').set("pageTitle", "Quality internet projects");
-        this.controllerFor('application').set("showFooter", true);
         if (controller.get('model.length') < this.get('perPage')) {
             controller.set('endOfResults', true);
         }
@@ -36,7 +41,7 @@ export default Ember.Route.extend({
         },
 
         willTransition() {
-            this.controllerFor('application').set("showFooter", false);
+            this.set('pageSettings.showFooter', false);
             this.controller.set('endOfResults', false);
         }
   }

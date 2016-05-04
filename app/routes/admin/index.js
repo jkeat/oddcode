@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    pageSettings: Ember.inject.service(),
 	perPage: 10,
 
 	model() {
@@ -10,9 +11,12 @@ export default Ember.Route.extend({
 		}).then(submissions => submissions.toArray().reverse());
 	},
 
+    afterModel(model, transition) {
+        this.set('pageSettings.pageTitle', "These are unapproved submissions");
+    },
+
     setupController(controller, model) {
 	    this._super(controller, model);
-        this.controllerFor('application').set("pageTitle", "These are unapproved submissions");
 
 	    if (controller.get('model.length') < this.get('perPage')) {
 	        controller.set('endOfResults', true);

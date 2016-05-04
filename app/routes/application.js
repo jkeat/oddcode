@@ -1,7 +1,15 @@
 import Ember from 'ember';
+
 export default Ember.Route.extend({
-	beforeModel: function() {
+	pageSettings: Ember.inject.service(),
+
+	beforeModel() {
 	  	return this.get("session").fetch().catch(function() {});
+	},
+
+	setupController(controller, model) {
+		this._super(controller, model);
+		controller.set('pageSettings', this.get('pageSettings'))
 	},
 
 	actions: {

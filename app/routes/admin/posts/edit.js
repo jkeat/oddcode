@@ -3,13 +3,18 @@ import SubmissionRouteAndPostRouteOverlap from 'oddcode/mixins/submission-route-
 import SubmissionRouteAndPostRouteAdminOverlap from 'oddcode/mixins/submission-route-and-post-route-admin-overlap';
 
 export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, SubmissionRouteAndPostRouteAdminOverlap, {
+	pageSettings: Ember.inject.service(),
+	
 	model(params) {
 		return this.store.findRecord('post', params.post_id);
 	},
 
+	afterModel(model, transition) {
+        this.set('pageSettings.pageTitle', "You're editing an approved post");
+    },
+
 	setupController(controller, model) {
 	    this._super(controller, model);
-	    this.controllerFor('application').set("pageTitle", "You're editing an approved post");
 	    controller.set('createdOnText', 'Approved');
 
 	    // Get each collection from the references to them, build a comma-sep'd list and set it as the default collection input
