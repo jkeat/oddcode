@@ -18,8 +18,7 @@ Router.map(function() {
   });
   this.route('account');
   this.route('collections', function() {
-    // this.route('collection-display', { path: "/:collection_slug" });
-    this.route('collection-display', { path: "/:collection_id" });
+    this.route('collection-display', { path: "/:collection_slug" });
   });
   this.route('about');
   this.route('post-display', { path: "/:post_id" });

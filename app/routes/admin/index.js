@@ -11,7 +11,7 @@ export default Ember.Route.extend({
 		}).then(submissions => submissions.toArray().reverse());
 	},
 
-    afterModel(model, transition) {
+    afterModel() {
         this.set('pageSettings.pageTitle', "These are unapproved submissions");
     },
 

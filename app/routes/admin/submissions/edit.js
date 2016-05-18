@@ -9,7 +9,7 @@ export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, Submission
 		return this.store.findRecord('submission', params.submission_id);
 	},
 
-	afterModel(model, transition) {
+	afterModel() {
         this.set('pageSettings.pageTitle', "You're editing an unapproved submission");
     },
 

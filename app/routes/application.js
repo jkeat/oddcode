@@ -9,7 +9,7 @@ export default Ember.Route.extend({
 
 	setupController(controller, model) {
 		this._super(controller, model);
-		controller.set('pageSettings', this.get('pageSettings'))
+		controller.set('pageSettings', this.get('pageSettings'));
 	},
 
 	actions: {

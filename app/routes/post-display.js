@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 		return this.store.findRecord('post', params.post_id);
 	},
 
-	afterModel(model, transition) {
+	afterModel(model) {
         this.set('pageSettings.pageTitle', model.get('title'));
     }
 });

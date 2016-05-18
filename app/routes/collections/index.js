@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 		return this.store.findAll('collection');
 	},
 
-	afterModel(model, transition) {
+	afterModel() {
         this.set('pageSettings.pageTitle', "Collections");
     },
 });

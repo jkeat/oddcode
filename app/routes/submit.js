@@ -8,7 +8,7 @@ export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, {
 		return this.store.createRecord('submission');
 	},
 
-	afterModel(model, transition) {
+	afterModel() {
         this.set('pageSettings.pageTitle', "You're submitting a new project");
     },
 

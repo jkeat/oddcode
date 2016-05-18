@@ -9,7 +9,7 @@ export default Ember.Route.extend(SubmissionRouteAndPostRouteOverlap, Submission
 		return this.store.findRecord('post', params.post_id);
 	},
 
-	afterModel(model, transition) {
+	afterModel() {
         this.set('pageSettings.pageTitle', "You're editing an approved post");
     },
 
